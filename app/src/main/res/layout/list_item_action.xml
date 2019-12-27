@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?attr/listPreferredItemHeightLarge"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="?attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/bullet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="4dp"
+        android:layout_height="32dp"
+        android:src="@drawable/bullet_background"/>
+
+    <LinearLayout
+        android:layout_marginStart="12dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:singleLine="true"
+            android:ellipsize="middle"
+            tools:text="Confirm withdraw"/>
+
+        <TextView
+            android:id="@+id/body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:alpha="0.5"
+            android:singleLine="true"
+            android:ellipsize="middle"
+            tools:text="Transfer 5 ETH to 0x9C298F..."/>
+
+        <TextView
+            android:id="@+id/state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:alpha="0.5"
+            android:singleLine="true"
+            android:ellipsize="middle"
+            tools:text="DONE/ACCEPT"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_marginStart="@dimen/spacer_s"
+        android:layout_marginEnd="@dimen/spacer_s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceCaption"
+        android:singleLine="true"
+        android:ellipsize="middle"
+        tools:text="10:08 AM, Fab 7"/>
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacer_xs"
+        android:paddingStart="@dimen/spacer_xs"
+        android:paddingEnd="@dimen/spacer_xs"
+        android:minWidth="20dp"
+        android:minHeight="20dp"
+        android:textColor="?attr/colorOnPrimary"
+        android:background="@drawable/badge_background"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceCaption"
+        tools:text="99"/>
+
+    <ImageView
+        android:id="@+id/action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/spacer_s"
+        android:textAppearance="?attr/textAppearanceBody2"
+        android:textColor="?attr/colorPrimary"
+        app:tint="?attr/colorAccent"
+        tools:src="@drawable/ic_pending"/>
+
+</LinearLayout>

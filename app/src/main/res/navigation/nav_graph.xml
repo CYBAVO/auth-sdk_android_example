@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_actions">
+
+    <fragment
+        android:id="@+id/fragment_actions"
+        android:name="com.cybavo.example.auth.action.ActionsFragment"
+        android:label="@string/label_actions"
+        tools:layout="@layout/fragment_actions">
+        <action
+            android:id="@+id/action_pair"
+            app:destination="@id/pairing_flow"
+            app:enterAnim="@anim/slide_right_enter"
+            app:exitAnim="@anim/slide_left_exit"
+            app:popEnterAnim="@anim/slide_left_enter"
+            app:popExitAnim="@anim/slide_right_exit"/>
+        <action
+            android:id="@+id/action_pin_code"
+            app:destination="@id/fragment_pin_code_action"
+            app:enterAnim="@anim/slide_right_enter"
+            app:exitAnim="@anim/slide_left_exit"
+            app:popEnterAnim="@anim/slide_left_enter"
+            app:popExitAnim="@anim/slide_right_exit">
+            <argument
+                android:name="action"
+                app:argType=".action.ActionArgument" />
+        </action>
+        <action
+            android:id="@+id/action_otp"
+            app:destination="@id/fragment_otp_action"
+            app:enterAnim="@anim/slide_right_enter"
+            app:exitAnim="@anim/slide_left_exit"
+            app:popEnterAnim="@anim/slide_left_enter"
+            app:popExitAnim="@anim/slide_right_exit">
+            <argument
+                android:name="action"
+                app:argType=".action.ActionArgument" />
+        </action>
+        <action
+            android:id="@+id/action_completed"
+            app:destination="@id/fragment_completed_action"
+            app:enterAnim="@anim/slide_right_enter"
+            app:exitAnim="@anim/slide_left_exit"
+            app:popEnterAnim="@anim/slide_left_enter"
+            app:popExitAnim="@anim/slide_right_exit">
+            <argument
+                android:name="action"
+                app:argType=".action.ActionArgument" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_settings"
+        android:name="com.cybavo.example.auth.setting.SettingsFragment"
+        android:label="@string/label_settings">
+        <action
+            android:id="@+id/action_manage_pairing"
+            app:destination="@id/fragment_manage_pairing"
+            app:enterAnim="@anim/slide_right_enter"
+            app:exitAnim="@anim/slide_left_exit"
+            app:popEnterAnim="@anim/slide_left_enter"
+            app:popExitAnim="@anim/slide_right_exit"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_pin_code_action"
+        android:name="com.cybavo.example.auth.action.detail.PinCodeActionFragment"
+        android:label="@string/action_setup_pin_code"
+        tools:layout="@layout/fragment_pin_code_action">
+        <argument
+            android:name="action"
+            app:argType=".action.ActionArgument" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_otp_action"
+        android:name="com.cybavo.example.auth.action.detail.OtpActionFragment"
+        tools:layout="@layout/fragment_otp_action">
+        <argument
+            android:name="action"
+            app:argType=".action.ActionArgument" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_completed_action"
+        android:name="com.cybavo.example.auth.action.detail.CompletedActionFragment">
+        <argument
+            android:name="action"
+            app:argType=".action.ActionArgument" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_manage_pairing"
+        android:name="com.cybavo.example.auth.pairing.ManageParingFragment"
+        android:label="@string/label_paring_services"
+        tools:layout="@layout/fragment_manage_paring">
+    </fragment>
+
+    <navigation
+        android:id="@+id/pairing_flow"
+        app:startDestination="@id/fragment_scan">
+        <fragment
+            android:id="@+id/fragment_scan"
+            android:name="com.cybavo.example.auth.pairing.NewPairingFragment"
+            android:label="@string/label_new_pairing"
+            tools:layout="@layout/fragment_new_pairing">
+            <action
+                android:id="@+id/action_finish"
+                app:destination="@id/fragment_finish"
+                app:enterAnim="@anim/slide_right_enter"
+                app:exitAnim="@anim/slide_left_exit"
+                app:popEnterAnim="@anim/slide_left_enter"
+                app:popExitAnim="@anim/slide_right_exit"/>
+        </fragment>
+        <fragment
+            android:id="@+id/fragment_finish"
+            android:name="com.cybavo.example.auth.pairing.FinishPairingFragment"
+            android:label="@string/label_finish"
+            tools:layout="@layout/fragment_finish_pairing" />
+    </navigation>
+</navigation>

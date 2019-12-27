@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_endpoint">{SERVICE_ENDPOINT}</string>
+    <string name="default_api_code">{SERVICE_API_CODE}</string>
+    <integer name="pin_code_length">6</integer>
+</resources>

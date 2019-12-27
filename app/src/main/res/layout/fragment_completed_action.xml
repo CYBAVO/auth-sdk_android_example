@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".action.detail.OtpActionFragment">
+
+    <TextView
+        android:id="@+id/type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacer_s"
+        android:minWidth="20dp"
+        android:minHeight="20dp"
+        android:textColor="?attr/colorOnPrimary"
+        android:background="@drawable/badge_background"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceCaption"
+        tools:text="99"/>
+
+    <ImageView
+        android:id="@+id/figure"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/body"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:layout_marginBottom="@dimen/spacer_m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/fig_otp"
+        app:tint="@color/colorAccept"/>
+
+    <TextView
+        android:id="@+id/body"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/figure"
+        app:layout_constraintBottom_toTopOf="@+id/data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/spacer_m"
+        android:paddingEnd="@dimen/spacer_m"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceBody1"
+        tools:text="Approve sign in"/>
+
+    <TextView
+        android:id="@+id/data"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/body"
+        app:layout_constraintBottom_toTopOf="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/spacer_m"
+        android:paddingEnd="@dimen/spacer_m"
+        android:gravity="center_horizontal"
+        tools:text="{JSON Data}"/>
+
+    <TextView
+        android:id="@+id/time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/data"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceCaption"
+        tools:text="Fab 7, 2020 10:08 am"/>
+
+    <TextView
+        android:id="@+id/result"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/spacer_xl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?textAppearanceBody1"
+        android:textColor="?attr/colorAccent"
+        tools:text="DONE/ACCEPT"/>
+
+    <TextView
+        android:id="@+id/result_time"
+        app:layout_constraintTop_toBottomOf="@+id/result"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?textAppearanceCaption"
+        tools:text="Fab 7, 2020 10:08 am"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

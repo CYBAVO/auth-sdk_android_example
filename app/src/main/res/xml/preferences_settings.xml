@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="category_account"
+        android:title="@string/label_parings">
+        <Preference
+            android:key="pref_parings"
+            android:title="@string/label_paring_services"
+            android:icon="@drawable/ic_pairing"/>
+    </PreferenceCategory>
+</androidx.preference.PreferenceScreen>

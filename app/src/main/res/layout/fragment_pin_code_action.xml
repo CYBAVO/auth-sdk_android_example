@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    android:clickable="true"
+    android:focusable="true"
+    tools:context=".action.detail.PinCodeActionFragment">
+
+    <TextView
+        android:id="@+id/type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacer_s"
+        android:minWidth="20dp"
+        android:minHeight="20dp"
+        android:textColor="?attr/colorOnPrimary"
+        android:background="@drawable/badge_background"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceCaption"
+        android:singleLine="true"
+        tools:text="99"/>
+
+    <TextView
+        android:id="@+id/body"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/data"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:paddingStart="@dimen/spacer_m"
+        android:paddingEnd="@dimen/spacer_m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        tools:text="@string/desc_setup_pin_code"/>
+
+    <TextView
+        android:id="@+id/data"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/body"
+        app:layout_constraintBottom_toTopOf="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/spacer_m"
+        android:paddingEnd="@dimen/spacer_m"
+        android:gravity="center_horizontal"
+        android:maxLines="3"
+        tools:text="{JSON Data}"/>
+
+    <TextView
+        android:id="@+id/time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/data"
+        app:layout_constraintBottom_toTopOf="@+id/pin_code_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAppearance="?attr/textAppearanceCaption"
+        tools:text="Fab 7, 2020 10:08 am"/>
+
+    <TextView
+        android:id="@+id/pin_code_display"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/pin_code_input"
+        android:layout_marginBottom="@dimen/spacer_l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32dp"
+        android:letterSpacing="0.8"
+        android:textColor="?attr/colorAccent"
+        tools:text="******"/>
+
+    <com.cybavo.auth.service.view.NumericPinCodeInputView
+        android:id="@+id/pin_code_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/accept"
+        android:layout_marginBottom="@dimen/spacer_m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:maxLength="@integer/pin_code_length"
+        app:hapticFeedback="true"
+        app:fixedOrder="true"
+        app:horizontalSpacing="@dimen/spacer_m"
+        app:verticalSpacing="@dimen/spacer_s"
+        app:buttonBackground="@drawable/pin_code_input_button_background"
+        app:buttonTextAppearance="@style/PinCodeInputButtonTextAppearance"/>
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pin_code_display"
+        app:layout_constraintBottom_toBottomOf="@+id/pin_code_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:progressBarStyleSmall"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/accept"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/reject"
+        android:layout_marginStart="@dimen/spacer_m"
+        android:layout_marginEnd="@dimen/spacer_m"
+        android:layout_marginBottom="@dimen/spacer_m"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/action_accept"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reject"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/accept"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/spacer_m"
+        android:layout_marginBottom="@dimen/spacer_m"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/action_reject"
+        app:backgroundTint="?attr/colorError"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
