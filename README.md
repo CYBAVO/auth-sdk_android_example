@@ -2,9 +2,9 @@
 
 Sample app for integrating Cybavo Authenticator SDK, https://www.cybavo.com/
 
+![image](https://github.com/CYBAVO/auth-sdk_android_example/raw/master/README/sc_security.png)
 ![image](https://github.com/CYBAVO/auth-sdk_android_example/raw/master/README/sc_main.png)
 ![image](https://github.com/CYBAVO/auth-sdk_android_example/raw/master/README/sc_pin.png)
-![image](https://github.com/CYBAVO/auth-sdk_android_example/raw/master/README/sc_settings.png)
 
 ## Features
 
