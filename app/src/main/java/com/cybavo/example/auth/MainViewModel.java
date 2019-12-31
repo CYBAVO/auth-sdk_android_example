@@ -2,6 +2,7 @@ package com.cybavo.example.auth;
 
 import android.app.Application;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.cybavo.auth.service.api.Callback;
 import com.cybavo.auth.service.auth.Authenticator;
@@ -132,20 +133,25 @@ public class MainViewModel extends AndroidViewModel implements PairingStateListe
 
     private void initPush() {
         FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(task -> {
-            final String token = task.getResult().getToken();
-            Log.d(TAG, "FCM token: " + token);
-            if (mService.getPairings().length > 0) {
-                mService.setPushToken(token, new Callback<SetPushTokenResult>() {
-                    @Override
-                    public void onResult(SetPushTokenResult setPushTokenResult) {
-                        // Good
-                    }
+            try {
+                final String token = task.getResult().getToken();
+                Log.d(TAG, "FCM token: " + token);
+                if (mService.getPairings().length > 0) {
+                    mService.setPushToken(token, new Callback<SetPushTokenResult>() {
+                        @Override
+                        public void onResult(SetPushTokenResult setPushTokenResult) {
+                            // Good
+                        }
 
-                    @Override
-                    public void onError(Throwable error) {
-                        Log.e(TAG, "setPushToken failed", error);
-                    }
-                });
+                        @Override
+                        public void onError(Throwable error) {
+                            Log.e(TAG, "setPushToken failed", error);
+                        }
+                    });
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "getInstanceId failed", e);
+                Toast.makeText(getApplication(), "FirebaseInstanceId.getInstance() failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
