@@ -14,14 +14,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/spacer_m"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_pairing_service"/>
+        android:layout_width="@dimen/icon_m"
+        android:layout_height="@dimen/icon_m"
+        tools:src="@drawable/ic_pairing_service"/>
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/service_name"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/paired_at"
+        app:layout_constraintBottom_toTopOf="@+id/deviceId"
         app:layout_constraintStart_toEndOf="@+id/icon"
         app:layout_constraintEnd_toStartOf="@+id/unpair"
         app:layout_constraintVertical_chainStyle="packed"
@@ -31,13 +31,38 @@
         android:textAppearance="?attr/textAppearanceBody1"
         android:singleLine="true"
         android:ellipsize="middle"
+        tools:text="Awesome Service"/>
+
+    <TextView
+        android:id="@+id/user"
+        app:layout_constraintTop_toBottomOf="@+id/service_name"
+        app:layout_constraintBottom_toTopOf="@+id/deviceId"
+        app:layout_constraintStart_toStartOf="@+id/service_name"
+        app:layout_constraintEnd_toStartOf="@+id/unpair"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceBody2"
+        tools:text="John Doe &lt;johndoe@cybavo.com&gt;"/>
+
+    <TextView
+        android:id="@+id/deviceId"
+        app:layout_constraintTop_toBottomOf="@+id/user"
+        app:layout_constraintBottom_toTopOf="@+id/paired_at"
+        app:layout_constraintStart_toStartOf="@+id/service_name"
+        app:layout_constraintEnd_toStartOf="@+id/unpair"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="middle"
+        android:textAppearance="?attr/textAppearanceCaption"
+        android:alpha="0.7"
         tools:text="mmCltzSRJImiduAbyuQL8n1Mzjot9r2GOK8rblYj0N4="/>
 
     <TextView
         android:id="@+id/paired_at"
-        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/deviceId"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintStart_toStartOf="@+id/deviceId"
         app:layout_constraintEnd_toStartOf="@+id/unpair"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

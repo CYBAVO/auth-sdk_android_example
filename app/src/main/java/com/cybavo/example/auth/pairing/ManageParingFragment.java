@@ -50,7 +50,7 @@ public class ManageParingFragment extends Fragment
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mViewModel = ViewModelProviders.of(getActivity()).get(ManagePairingViewModel.class);
+        mViewModel = ViewModelProviders.of(this).get(ManagePairingViewModel.class);
 
         mViewModel.getToUnpair().observe(this, toUnpair -> {
             if (toUnpair != null) {

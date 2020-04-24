@@ -15,9 +15,10 @@ public class ActionArgument implements Parcelable {
         return new ActionArgument(
                 action.type, action.token, action.deviceId,
                 action.messageType, action.messageTitle, action.messageBody, action.messageData,
-                action.createTime, action.rejectable, action.inputPinCode,
-                action.state, action.userAction, action.updatedTime
-        );
+                action.clientInfo.platform, action.clientInfo.ip,
+                action.createTime,
+                action.rejectable, action.inputPinCode, action.state,
+                action.userAction, action.updatedTime);
     }
 
     public int type;
@@ -33,10 +34,12 @@ public class ActionArgument implements Parcelable {
     public int state;
     public int userAction;
     public long updatedTime;
+    public int clientPlatform;
+    public String clientIp;
 
     private ActionArgument(int type, String token, String deviceId,
                            int messageType, String messageTitle, String messageBody, String messageData,
-                           long createTime, boolean rejectable, boolean inputPinCode,
+                           int clientPlatform, String clientIp, long createTime, boolean rejectable, boolean inputPinCode,
                            int state,
                            int userAction,
                            long updatedTime) {
@@ -53,6 +56,8 @@ public class ActionArgument implements Parcelable {
         this.state = state;
         this.userAction = userAction;
         this.updatedTime = updatedTime;
+        this.clientPlatform = clientPlatform;
+        this.clientIp = clientIp;
     }
 
     protected ActionArgument(Parcel in) {
@@ -69,6 +74,8 @@ public class ActionArgument implements Parcelable {
         state = in.readInt();
         userAction = in.readInt();
         updatedTime = in.readLong();
+        clientPlatform = in.readInt();
+        clientIp = in.readString();
     }
 
     public String getTitle(Context context) {
@@ -157,5 +164,7 @@ public class ActionArgument implements Parcelable {
         dest.writeInt(state);
         dest.writeInt(userAction);
         dest.writeLong(updatedTime);
+        dest.writeInt(clientPlatform);
+        dest.writeString(clientIp);
     }
 }

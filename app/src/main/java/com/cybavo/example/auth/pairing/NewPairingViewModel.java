@@ -1,11 +1,13 @@
 package com.cybavo.example.auth.pairing;
 
 import android.app.Application;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.cybavo.auth.service.api.Callback;
 import com.cybavo.auth.service.auth.Authenticator;
+import com.cybavo.auth.service.auth.Pairing;
 import com.cybavo.auth.service.auth.results.PairResult;
 import com.cybavo.example.auth.service.ServiceHolder;
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -22,7 +24,7 @@ public class NewPairingViewModel extends AndroidViewModel {
     private final static String TAG = NewPairingViewModel.class.getSimpleName();
 
     private Authenticator mService;
-    private MutableLiveData<Boolean> mPaired;
+    private MutableLiveData<Pairing> mPaired;
     private MutableLiveData<Throwable> mError;
     private MutableLiveData<Boolean> mInProgress;
 
@@ -53,17 +55,22 @@ public class NewPairingViewModel extends AndroidViewModel {
 
                 @Override
                 public void onResult(PairResult pairResult) {
-                    mPaired.setValue(true);
+                    Pairing[] pairings = mService.getPairings();
+                    for (Pairing pairing : pairings) {
+                        if (TextUtils.equals(pairing.deviceId, pairResult.deviceId)) {
+                            mPaired.setValue(pairing);
+                        }
+                    }
                     mInProgress.setValue(false);
                 }
             });
         });
     }
 
-    LiveData<Boolean> getPaired() {
+    LiveData<Pairing> getPaired() {
         if (mPaired == null) {
             mPaired = new MutableLiveData<>();
-            mPaired.setValue(false);
+            mPaired.setValue(null);
         }
         return mPaired;
     }

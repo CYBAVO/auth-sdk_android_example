@@ -65,7 +65,7 @@ public class PushNotificationService extends FirebaseMessagingService {
             }
 
             PushNotification pushNotification = PushNotification.parse(payload);
-            onReceive2FaPush("", "", pushNotification);
+            onReceive2FaPush(pushNotification.title, pushNotification.body, pushNotification);
         }
     }
 
@@ -104,8 +104,8 @@ public class PushNotificationService extends FirebaseMessagingService {
     }
 
     private void onReceive2FaPush(String title, String body, PushNotification pushNotification) {
-        Log.d(TAG, "onReceive2FaPush: " + pushNotification.actions);
-        sNewActions.postValue(pushNotification.actions);
+        Log.d(TAG, "onReceive2FaPush: " + pushNotification.devices);
+        sNewActions.postValue(pushNotification.devices);
 
         Intent intent = new Intent(this, MainActivity.class).
                 setAction(Intent.ACTION_MAIN).

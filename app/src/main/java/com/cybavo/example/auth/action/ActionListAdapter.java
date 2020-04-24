@@ -81,7 +81,8 @@ public class ActionListAdapter extends RecyclerView.Adapter<ActionListAdapter.Vi
 
         ImageView bullet;
         TextView title;
-        TextView body;
+        TextView serviceName;
+        TextView deviceId;
         TextView state;
         TextView time;
         TextView type;
@@ -91,7 +92,8 @@ public class ActionListAdapter extends RecyclerView.Adapter<ActionListAdapter.Vi
             super(view);
 
             title = view.findViewById(R.id.title);
-            body = view.findViewById(R.id.body);
+            serviceName = view.findViewById(R.id.service_name);
+            deviceId = view.findViewById(R.id.deviceId);
             state = view.findViewById(R.id.state);
             time = view.findViewById(R.id.time);
             type = view.findViewById(R.id.type);
@@ -103,7 +105,10 @@ public class ActionListAdapter extends RecyclerView.Adapter<ActionListAdapter.Vi
 
             Context context = itemView.getContext();
 
-            body.setText(action.deviceId);
+            Pairing pairing = mPairings.get(action.deviceId);
+            serviceName.setText(pairing != null ? pairing.serviceName : "-");
+
+            deviceId.setText(String.format("(%s)", action.deviceId));
 
             final ActionArgument arg = ActionArgument.fromAction(action);
             title.setText(arg.getTitle(context));

@@ -17,4 +17,11 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">22sp</item>
     </style>
+
+    <style name="FullscreenDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
 </resources>

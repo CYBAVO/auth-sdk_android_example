@@ -75,4 +75,5 @@
     <string name="desc_security_device_insecure">Device is insecure, please use another device instead.</string>
 
     <string name="action_ignore">Ignore and continue</string>
+    <string name="pick">Pick</string>
 </resources>

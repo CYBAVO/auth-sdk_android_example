@@ -113,12 +113,26 @@
                 app:enterAnim="@anim/slide_right_enter"
                 app:exitAnim="@anim/slide_left_exit"
                 app:popEnterAnim="@anim/slide_left_enter"
-                app:popExitAnim="@anim/slide_right_exit"/>
+                app:popExitAnim="@anim/slide_right_exit">
+                <argument
+                    android:name="service_name"
+                    app:argType="string" />
+                <argument
+                    android:name="icon_url"
+                    app:argType="string" />
+            </action>
         </fragment>
         <fragment
             android:id="@+id/fragment_finish"
             android:name="com.cybavo.example.auth.pairing.FinishPairingFragment"
             android:label="@string/label_finish"
-            tools:layout="@layout/fragment_finish_pairing" />
+            tools:layout="@layout/fragment_finish_pairing">
+            <argument
+                android:name="service_name"
+                app:argType="string" />
+            <argument
+                android:name="icon_url"
+                app:argType="string" />
+        </fragment>
     </navigation>
 </navigation>

@@ -58,11 +58,14 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.0-alpha02'
 
     // ZXing for QR Code scanning
-    implementation 'com.google.zxing:core:3.3.3'
-    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+//    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+//    implementation group: 'com.snicesoft', name: 'android-scan', version: '1.0.1'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
 
     // Auth SDK
-    implementation 'com.cybavo.auth:auth-sdk-lib:1.0.+'
+    implementation 'com.cybavo.auth:auth-sdk-lib:[1.0.586-SNAPSHOT,)'
 
     // Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-messaging:20.0.1'
