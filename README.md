@@ -28,6 +28,11 @@ Sample app for integrating Cybavo Authenticator SDK, https://www.cybavo.com/
 4. Edit `values/config.xml` ➜ `default_api_code` to fill in yout `API Code`
 5. To enable push notification feature, setup project to integrate [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging) (FCM) service, download `google-services.json` to `/app` folder. Refer to [official document](https://firebase.google.com/docs/cloud-messaging/android/client) for details
 
+
+## Proguard configuration
+
+CYBAVO Auth SDK uses [Google Gson](https://github.com/google/gson) as dependency, please refer to this [Proguard rule](https://github.com/google/gson/blob/master/examples/android-proguard-example/proguard.cfg) to make gson survives Proguard. 
+
 ## CYBAVO
 
 A group of cybersecurity experts making crypto-currency wallet secure and usable for your daily business operation.
