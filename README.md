@@ -1,4 +1,4 @@
-# CYBABO Auth SDK for Android - Sample
+# CYBAVO Auth SDK for Android - Sample
 
 Sample app for integrating Cybavo Authenticator SDK, https://www.cybavo.com/
 
